@@ -1,5 +1,6 @@
-export function postSafetyEvent() {
-  // Implémentation de la création d'un SafetyEvent //TODO 
+export function postSafetyEvent(req ,res) {
+  const eventData = req.body;
+  
 }
 
 export function getSafetyEvents() {
