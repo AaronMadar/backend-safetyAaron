@@ -14,3 +14,4 @@ export const AppDataSource = new DataSource({
   entities: [SafetyEvent],
   synchronize: true,
 });
+``
