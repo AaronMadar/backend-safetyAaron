@@ -2,7 +2,7 @@ import { requestType } from "@/types/request-type";
 import type { SafetyEventType } from "@/types/safety-event-type";
 import { NextFunction , Response} from "express";
 
-export function validateSafetyEvent(req: requestType, res:  Response, next: NextFunction) {
+export function validationSafetyEvent(req: requestType, res:  Response, next: NextFunction) {
   const eventData = req.body;
 
   const requiredFields: (keyof SafetyEventType)[] = [

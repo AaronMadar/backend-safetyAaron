@@ -1,10 +1,14 @@
 import express from 'express';
 import { AppDataSource } from './data-source'; 
+import safetyEventRouter from '@/routes/safety-event-route';
 
 const server = express();
 const PORT = 3000;
 
 server.use(express.json());
+server.use('/safety-event', safetyEventRouter);
+
+
 
 // --- Le démarrage du serveur dépend de la connexion BDD ---
 AppDataSource.initialize()
