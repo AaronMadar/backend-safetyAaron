@@ -13,7 +13,7 @@ export async  function postSafetyEvent(req: Request, res: Response) {
     res.status(201).json({ message: "SafetyEvent created successfully" });
   } catch (error:unknown) {
      const err = error instanceof Error ? error : new Error(String(error));
-    console.error(err.message);
+    console.error("POST ERROR:", error)
     res.status(500).json({ error: err.message });
   }
 }
@@ -23,9 +23,11 @@ export async function getSafetyEvents(req: Request , res: Response) {
      const result = await getAllEvents();
     res.status(200).json(result);
   } catch (error) {
+    console.error("GET ERROR:", error)
     res.status(500).json({ error: "Failed to retrieve SafetyEvents" });
   }
 }
+
 
 export async function updateSafetyEvent(req: Request, res: Response) {
   try {
@@ -33,6 +35,7 @@ export async function updateSafetyEvent(req: Request, res: Response) {
     const result = await updateEvent(id, req.body);
     res.status(200).json(result);
   } catch (error) {
+    console.error("UPDATE ERROR:", error); // <--- AJOUTE ÇA pour voir le vrai problème
     res.status(500).json({ error: "Failed to update SafetyEvent" });
   }
 }
@@ -43,6 +46,7 @@ export async function deleteSafetyEvent(req: Request, res: Response) {
     await deleteEvent(id);
     res.status(200).json({ message: "SafetyEvent deleted successfully" });
   } catch (error) {
+    console.error("DELETE ERROR:", error)
     res.status(500).json({ error: "Failed to delete SafetyEvent" });
   }
 }
