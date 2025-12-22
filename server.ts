@@ -18,11 +18,7 @@ server.use('/safety-event', safetyEventRouter);
 // --- Le démarrage du serveur dépend de la connexion BDD ---
 AppDataSource.initialize()
   .then(() => {
-    console.log(" Data Source a été initialisé avec succès !");
-
-    server.get('/', (req, res) => {
-      res.status(200).send('Server is running ohoh');
-    });
+    console.log("Data Source has been initialized with success !");
 
     server.listen(PORT, () => {
       console.log(` Server is listening on port ${PORT} ... `);
